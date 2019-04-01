@@ -20,13 +20,13 @@ class Classifier(nn.Module):
         # Now we define the layers to be used.
         self.conv1 = nn.Sequential(
             nn.Conv2d(1, 10, 5),
-            nn.MaxPool2d(2),
+            # nn.MaxPool2d(2),
             nn.ReLU()
         )
         self.conv2 = nn.Sequential(
             nn.Conv2d(10, 20, 5),
             nn.Dropout2d(),
-            nn.MaxPool2d(2),
+            # nn.MaxPool2d(2),
             nn.ReLU()
         )
         self.fc1 = nn.Linear(320, 50)
@@ -39,4 +39,4 @@ class Classifier(nn.Module):
         x = F.relu(self.fc1(x))
         x = F.dropout(x, training=self.training)
         x = self.fc2(x)
-        return F.log_softmax(x)
+        return F.log_softmax(x, dim=1)

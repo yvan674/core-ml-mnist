@@ -219,10 +219,15 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+###############
+#        Results         #
+###############
 # PyTorch unnecessary
 **/*.pt
+**/*.pth
 **/*-loss_data.csv
 
+**/results
 
 # temp files
 **/*~

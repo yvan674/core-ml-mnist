@@ -43,10 +43,17 @@ def parse_arguments():
 
 def main(arguments):
     """Main function that actually runs everything."""
-    if arguments.t:
+    if arguments.train:
         # Runs in training mode
         trainer = Trainer(arguments.batch_size_train, arguments.batch_size_test,
                           arguments.epochs, arguments.lr, arguments.momentum,
                           arguments.weights)
 
         trainer.start()
+
+
+if __name__ == "__main__":
+    try:
+        main(parse_arguments())
+    except KeyboardInterrupt:
+        print("Killing process.")
